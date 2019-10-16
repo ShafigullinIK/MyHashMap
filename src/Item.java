@@ -21,7 +21,7 @@ public class Item {
     }
 
     public int myHashCode(){
-        return key*321;
+        return key*17;   //Во избежание коллизий лучше использовать здесь простое число.
     }
 
     @Override
