@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MyMap {
 
     private ArrayList<Item> map;
+    HashMap<Integer, String> hashMap;
 
     public MyMap(){
         map = new ArrayList<>();
@@ -17,6 +19,24 @@ public class MyMap {
             }
         }
         if(flag == false) map.add(item);
+    }
+
+    public boolean contains(Item item){
+        for (Item it:map) {
+            if(item.equals(it)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Item get(int key){
+        for (Item it:map) {
+            if(it.getKey() == key){
+                return it;
+            }
+        }
+        return null;
     }
 
     @Override

@@ -18,6 +18,26 @@ public class MyHashMap {
         box[boxNumber].add(item);
     }
 
+    public boolean containsPair(Item item){
+        int itemHC = item.myHashCode();
+        MyMap currentMap = box[itemHC%box.length];
+        return currentMap.contains(item);
+    }
+
+    public Item get(int key){
+        int itemHC = Item.myHashcode(key);
+        MyMap currentMap = box[itemHC%box.length];
+        return currentMap.get(key);
+    }
+
+    public Item getOrDefault(int key){
+        Item item = get(key);
+        if(item != null){
+            return item;
+        } return new Item(-1, "not found");
+    }
+
+
     @Override
     public String toString(){
         String result = "{ \n";

@@ -21,11 +21,27 @@ public class Item {
     }
 
     public int myHashCode(){
-        return key*17;   //Во избежание коллизий лучше использовать здесь простое число.
+        return key*997;
+    }
+
+    public static int myHashcode(int key){
+        return key*997;
     }
 
     @Override
     public String toString(){
         return key + "->" + value;
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if(object instanceof Item){
+            Item that = (Item) object;
+            if(this.key == that.key &&
+                this.value.equals(that.value)){
+                return true;
+            }
+        }
+        return false;
     }
 }
